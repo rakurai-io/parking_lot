@@ -48,6 +48,7 @@ static NUM_THREADS: AtomicUsize = AtomicUsize::new(0);
 ///
 /// Except for the initial value of null, it must always point to a valid `HashTable` instance.
 /// Any `HashTable` this global static has ever pointed to must never be freed.
+#[no_mangle]
 static HASHTABLE: AtomicPtr<HashTable> = AtomicPtr::new(ptr::null_mut());
 
 // Even with 3x more buckets than threads, the memory overhead per thread is
