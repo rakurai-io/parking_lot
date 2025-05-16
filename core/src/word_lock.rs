@@ -290,6 +290,7 @@ impl WordLock {
 // try and avoid false positives by using a discarded acquire load instead.
 #[inline]
 fn fence_acquire(a: &AtomicUsize) {
+    #[allow(unexpected_cfgs)]
     if cfg!(tsan_enabled) {
         let _ = a.load(Ordering::Acquire);
     } else {

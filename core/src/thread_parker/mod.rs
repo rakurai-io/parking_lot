@@ -82,4 +82,5 @@ cfg_if! {
     }
 }
 
+#[allow(unused_imports)]
 pub use self::imp::{thread_yield, ThreadParker, UnparkHandle};
